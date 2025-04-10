@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Computadoras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .login-form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-form input {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-form button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #0056b3;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product h3 {
+            margin: 10px 0;
+        }
+        .product p {
+            color: #555;
+        }
+        .product button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tienda de Computadoras</h1>
+    </header>
+    <div class="container">
+        
+        <div class="login-form" id="loginForm">
+            <h2>Iniciar Sesión</h2>
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button id="loginButton">Iniciar Sesión</button>
+        </div>
+        <button id="logoutButton" style="display: none;">Cerrar Sesión</button>
+
+        <div class="products" id="products" style="display: none;">
+            <div class="product">
+                <img src="https://via.placeholder.com/250?text=PC+1" alt="PC 1">
+                <h3>Computadora Gamer</h3>
+                <p>Procesador Intel i7, 16GB RAM, SSD 512GB</p>
+                <p><strong>$1,200</strong></p>
+                <button>Añadir al Carrito</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/250?text=PC+2" alt="PC 2">
+                <h3>Laptop Profesional</h3>
+                <p>Procesador AMD Ryzen 5, 8GB RAM, SSD 256GB</p>
+                <p><strong>$900</strong></p>
+                <button>Añadir al Carrito</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/250?text=PC+3" alt="PC 3">
+                <h3>PC de Oficina</h3>
+                <p>Procesador Intel i3, 4GB RAM, HDD 1TB</p>
+                <p><strong>$500</strong></p>
+                <button>Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Tienda de Computadoras. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const loginButton = document.getElementById('loginButton');
+        const logoutButton = document.getElementById('logoutButton');
+        const loginForm = document.getElementById('loginForm');
+        const products = document.getElementById('products');
+
+        loginButton.addEventListener('click', () => {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === "admin" && password === "1234") {
+                alert("Inicio de sesión exitoso");
+                loginForm.style.display = "none";
+                logoutButton.style.display = "block";
+                products.style.display = "flex";
+            } else {
+                alert("Usuario o contraseña incorrectos");
+            }
+        });
+
+        logoutButton.addEventListener('click', () => {
+            alert("Sesión cerrada");
+            loginForm.style.display = "block";
+            logoutButton.style.display = "none";
+            products.style.display = "none";
+        });
+    </script>
+</body>
+</html>
